@@ -6,7 +6,6 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 - [The challenge](#the-challenge)  
 - [Built with](#built-with)
-- [Continued development](#continued-development)
 - [Screenshots](#screenshots)
 
 ### The challenge
