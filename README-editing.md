@@ -4,19 +4,10 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ## Table of contents
 
-<!-- - [Overview](#overview) -->
 - [The challenge](#the-challenge)  
-<!-- - [Links](#links) -->
-<!-- - [My process](#my-process) -->
 - [Built with](#built-with)
-<!-- - [What I learned](#what-i-learned) -->
 - [Continued development](#continued-development)
-<!-- - [Useful resources](#useful-resources) -->
-<!-- - [Author](#author) -->
-<!-- - [Acknowledgments](#acknowledgments) -->
-- [Screenshot](#screenshot)
-
-<!-- ## Overview -->
+- [Screenshots](#screenshots)
 
 ### The challenge
 
@@ -29,25 +20,6 @@ Users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
 
-### Screenshot
-
-![](screenshots/screenshot-desktop-view-dark-theme.PNG)
-![](screenshots/screenshot-desktop-view-light-theme-search.PNG)
-![](screenshots/screenshot-desktop-view-dark-theme-dropdown.PNG)
-![](screenshots/screenshot-desktop-view-dark-theme-country-details.PNG)
-
-![](screenshots/screenshot-tablet-view-light-theme.PNG)
-![](screenshots/screenshot-tablet-view-light-theme-country-details.PNG)
-
-![](screenshots/screenshot-mobile-view-dark-theme.PNG)
-![](screenshots/screenshot-mobile-view-light-theme-country-details.PNG)
-
-
-
-<!-- ### Links -->
-
-<!-- ## My process -->
-
 ### Built with
 
 - Semantic HTML5 markup
@@ -58,16 +30,14 @@ Users should be able to:
 - AJAX
 - Desktop-first workflow
 
-<!-- ### What I learned -->
+### Screenshots
 
-<!-- ### Continued development -->
+![](screenshots/screenshot-desktop-view-dark-theme.PNG)
+![](screenshots/screenshot-desktop-view-dark-theme-dropdown.PNG)
+![](screenshots/screenshot-desktop-view-dark-theme-country-details.PNG)
+![](screenshots/screenshot-mobile-view-dark-theme.PNG)
 
-
-<!-- ### Useful resources -->
-
-
-<!-- ## Author -->
-
-
-<!-- ## Acknowledgments -->
-
+![](screenshots/screenshot-desktop-view-light-theme-search.PNG)
+![](screenshots/screenshot-tablet-view-light-theme.PNG)
+![](screenshots/screenshot-tablet-view-light-theme-country-details.PNG)
+![](screenshots/screenshot-mobile-view-light-theme-country-details.PNG)
