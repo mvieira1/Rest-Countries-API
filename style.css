@@ -1,0 +1,386 @@
+/*CSS Reset*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*dark-theme (default)*/
+:root{
+    --bg-color: hsl(207, 26%, 17%);
+    --text-color: hsl(0, 0%, 100%);
+    --elements-color: hsl(209, 23%, 22%);
+    --blur-color: hsla(214, 19%, 7%, 0.5);
+    --menu-hover-color: hsl(207, 26%, 15%);
+}
+
+/*light-theme*/
+.light-theme{
+    --bg-color: hsl(0, 0%, 96%);
+    --input-color: hsl(0, 0%, 52%);
+    --text-color: hsl(200, 15%, 8%);
+    --elements-color: hsl(0, 0%, 100%);
+    --blur-color: hsla(0, 0%, 52%, 0.5);
+    --menu-hover-color: hsl(0, 0%, 93%);;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family:'Nunito-Sans', sans-serif;
+    height: 100%;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.5rem;
+    background-color: var(--elements-color);
+    padding: 0 5rem;
+    box-shadow: 0 0.3rem 0.5rem var(--blur-color);
+}
+
+.theme{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: .95rem;
+}
+
+.theme img{
+    height: .95rem;
+    cursor: pointer;
+}
+
+.search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3.125rem 5rem;
+}
+
+form{
+    width: 60%;
+}
+
+input{
+    background-color: var(--elements-color);
+    outline: none;
+    border: none;
+    appearance: none;
+    color: var(--input-color);
+    width: 100%; /*100% da width do form. Estou a usar percentagens para que a página seja responsive*/
+    padding: 1rem 2rem;
+    border-radius: 0.5em;
+    box-shadow: 0.3rem 0.3rem 0.5rem var(--blur-color);
+}
+
+/*
+select{
+    -webkit-appearance: none; (Chrome, Safari)
+    -moz-appearance: none; (Firefox)
+    appearance: none; (A propriedade é experimental !!! Visa, na mesma, manter o styling nativo do elemento, mas a ideia é que funcione em vários OS (Edge, Firefox, Safari, Chrome, Opera) --> vou fazer um arrow)
+    outline: none;
+    border: none;
+    background-color: var(--elements-color);
+    color: var(--input-color);
+    padding: 15px;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    box-shadow: 0 3px 5px var(--blur-color);
+}
+
+select option{
+    padding: 15px;
+    border-radius: 5px;
+}
+
+PROBLEMA: as properties que estava a definir para as options não se estavam a reprecutir no layout... 
+MOTIVO: ATENÇÃO: relembra que os form elements são gerados/rendered pelo Sistema Operativo e não pelo HTML/Browser. Consequentemente, o styling, em CSS, nem sempre é possível...
+SOLUÇÃO: se quiser personalizar esses elementos, o melhor é utilizar outros tags e criar um dropdown menu similar.
+*/
+
+/* ------- DROPDOWN MENU ------- */
+
+.dropdown{
+    color: var(--text-color);
+    min-width: 20%; /*à medida que as dimensões do ecrã diminuem, a width do dorpdown aumenta, in order to fit its content*/
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem 0.5rem var(--blur-color);
+    position: relative;
+    font-size: .95rem;
+}
+
+.select{
+    background-color: var(--elements-color);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    display: flex;
+    gap: 1rem; /*na desktop view é irrelevante, mas para displays mais pequenos não*/
+    justify-content: space-between;
+}
+
+.arrow{
+    width: 0;
+    height: 0;
+    border-right: 0.32rem solid transparent;
+    border-left: 0.32rem solid transparent;
+    border-bottom: 0.32rem solid transparent;
+    border-top: 0.32rem solid var(--text-color);
+    transition: 0.3s;
+
+    position: relative;
+    top: .3rem;
+}
+
+.arrow-rotate{
+    transform: rotate(180deg);
+    transition: 0.3s;
+}
+
+/* Actually dropdown (added in JavaScript) */
+
+.menu{
+    list-style: none;
+    padding: 0.5rem;
+    background-color: var(--elements-color);
+    box-shadow: 0.3rem 0.3rem 0.5rem var(--blur-color);
+    border-radius: 0.5rem;
+
+    position: absolute; /* em relação ao div.dropdown */
+    top: 4rem;
+    width: 100%;
+
+    display: none;
+}
+
+.menu-open{
+    display: block;
+}
+
+.menu li{
+    padding: 0.7rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.menu li:hover{
+    background-color: var(--menu-hover-color);
+}
+
+.active{
+    background-color: var(--bg-color);
+}
+
+/* NOTA: vou passar as medidas todas de px para rem. Assim, se o user mudar o font size da root, os elementos ajustam-se (aumentam/diminuem) em concordância */
+
+/* -------------- */
+
+.cards-container{
+    min-height: 33%; /* da altura do body; min-height pq tenho de considerar os cards que vão ser adicionados e os diferentes displays; em mobile, por ex., a altura do .cards-container será significativamente maior pq os containers que estão lá dentro vão ficar empilhados */
+    display: flex;
+    flex-wrap: wrap; /*para os .cards caírem para a linha de baixo*/
+    justify-content: flex-start; /*tinha feito com justify-content: space-between; mas depois quando pesquisava por um country e apareciam 2 cards numa row, um ficava no início e outro do fim... eu quero que ambos sejam empurrados para o início*/
+    gap: 4%; /*no entanto, continuo a querer que fiquem igualmente espaçados, então tenho que definir gaps diferentes para os diferentes displays/diferentes widths dos cards*/
+    margin: 0 5rem;
+}
+
+.card{
+    /*min-height: 20rem*/
+    width: 22%; /* o div ocupa 22% da largura total do container --> cabem 4 cards em cada linha (Desktop View) com espaço entre si */
+    background-color: var(--elements-color);
+    margin-bottom: 4rem;
+    border-radius: 0.5em;
+    box-shadow: 0.3rem 0.3rem 0.5rem var(--blur-color);
+    /*by default, o text dentro dos <a> tags é underlined e violeta. Não queremos isso*/
+    /* text-decoration: none; - quando tinha <a> tags
+    color: var(--text-color); */
+    cursor: pointer;
+}
+
+.card img{
+    width: 100%; /*100% da largura do .card*/
+    height: 10rem; /*mesma altura para todas as imagens*/
+    object-fit: cover; /*the image keeps its aspect ratio and fills the given dimension.*/
+    border-top-right-radius: 0.5em;
+    border-top-left-radius: 0.5em;
+}
+
+.countryInfo{
+    padding: 1.25rem;
+}
+
+span{
+    font-weight: 600;
+}
+
+.countryName{
+    margin-bottom: 1.25rem;
+}
+
+.countryInfo p, .countryDetailsInfo p{
+    margin-bottom: 0.6rem;
+    font-size: .9rem;
+}
+
+/*Country Details*/
+.goBack{
+    padding: 3.125rem 5rem;
+}
+
+.backBtn{
+    background-color: var(--elements-color);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    border-radius: 0.5em;
+    width: 14rem;
+    height: 3.125rem;
+    box-shadow: 0.3rem 0.3rem 0.5rem var(--blur-color);
+    cursor: pointer;
+    font-size: .9rem;
+}
+
+.countryDetails{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem 5rem 5rem;
+}
+
+.flag{
+    box-shadow: 0.3rem 0.3rem 0.5rem var(--blur-color);
+    width: 45%;
+}
+
+.countryDetailsInfo{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.info-left, .info-right{
+    flex: 1;
+}
+
+.border-countries{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.border-countries span{
+    margin-right: 0.6rem;
+}
+
+.border-country{
+    padding: 0.6rem 1.2rem;
+    margin: 0 0.6rem 0.6rem 0; /*podia também ter definido um gap em div.border-countries, mas para praticar. Há várias maneiras de resolver o mesmo problema*/
+    font-size: 0.9rem;
+    background-color: var(--elements-color);
+    box-shadow: 0 0.3rem 0.5rem var(--blur-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+/*Laptop M View*/
+@media(max-width: 1024px){
+    .card{
+        width: 30%;
+    }
+
+    .cards-container{
+        gap: 5%;
+    }
+}
+
+/*Tablet View*/
+@media(max-width: 768px){
+
+    .search{
+        display: block;
+    }
+
+    form{
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .dropdown{
+        width: 14rem; /*se escrever 33% ou qq outra percentagem, a width do div.dropdown vai diminuir à medida que diminuo o ecrã e, agora, não é isso que quero*/
+    }
+
+    .card{
+        width: 45%;
+    }
+
+    .cards-container{
+        gap: 10%;
+    }
+
+    .countryDetails{
+        display: block;
+    }
+
+    .flag{
+        margin-bottom: 3.125rem;
+    }
+
+    .flag, .countryDetailsInfo{
+        width: 100%;
+    }
+    
+    .info{
+        display: block;
+    }
+}
+
+/*Other Views*/
+@media(max-width: 550px){
+    /*vou diminuir as margens dos 550px pra baixo*/
+
+    header{
+        padding: 0 2.5rem;
+    }
+    
+    .search{
+        margin: 3.125rem 2.5rem;
+    }
+
+    .cards-container{
+        margin: 0 2.5rem;
+    }
+
+    .goBack{
+        padding: 3.125rem 2.5rem;
+    }
+
+    .countryDetails{
+        padding: 0 2.5rem 2.5rem 2.5rem;
+    }
+}
+
+/*Mobile View*/
+@media(max-width: 425px){
+    .theme p{
+        display: none;
+    }
+
+    .card{
+        width: 100%;
+    }
+}
