@@ -198,7 +198,7 @@ SOLUÇÃO: se quiser personalizar esses elementos, o melhor é utilizar outros t
     width: 22%; /* o div ocupa 22% da largura total do container --> cabem 4 cards em cada linha (Desktop View) com espaço entre si */
     background-color: var(--elements-color);
     margin-bottom: 4rem;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     box-shadow: 0.3rem 0.3rem 0.5rem var(--blur-color);
     /*by default, o text dentro dos <a> tags é underlined e violeta. Não queremos isso*/
     /* text-decoration: none; - quando tinha <a> tags
@@ -210,8 +210,8 @@ SOLUÇÃO: se quiser personalizar esses elementos, o melhor é utilizar outros t
     width: 100%; /*100% da largura do .card*/
     height: 10rem; /*mesma altura para todas as imagens*/
     object-fit: cover; /*the image keeps its aspect ratio and fills the given dimension.*/
-    border-top-right-radius: 0.5em;
-    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
 }
 
 .countryInfo{
@@ -240,7 +240,7 @@ span{
     background-color: var(--elements-color);
     color: var(--text-color);
     padding: 1rem 2rem;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     width: 14rem;
     height: 3.125rem;
     box-shadow: 0.3rem 0.3rem 0.5rem var(--blur-color);
