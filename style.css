@@ -76,7 +76,7 @@ input{
     color: var(--input-color);
     width: 100%; /*100% da width do form. Estou a usar percentagens para que a página seja responsive*/
     padding: 1rem 2rem;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     box-shadow: 0.3rem 0.3rem 0.5rem var(--blur-color);
 }
 
