@@ -45,6 +45,10 @@ header{
     box-shadow: 0 0.3rem 0.5rem var(--blur-color);
 }
 
+h1{
+    font-size: 1.5rem;
+}
+
 .theme{
     display: flex;
     align-items: center;
